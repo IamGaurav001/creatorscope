@@ -3,7 +3,7 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { VerifiedBadge } from "@/components/VerifiedBadge";
 import type { FullUserProfile, ProfileDetailResponse } from "@/types";
-import { formatEngagementRate } from "@/utils/formatters";
+import { formatEngagementRate, formatNumber } from "@/utils/formatters";
 import { loadProfileByUsername } from "@/utils/profileLoader";
 
 function formatFollowersDetail(count: number) {
@@ -15,7 +15,6 @@ function formatFollowersDetail(count: number) {
 export function ProfileDetailPage() {
   const { username } = useParams<{ username: string }>();
   const [searchParams] = useSearchParams();
-  const platform = searchParams.get("platform") || "unknown";
   const [profileData, setProfileData] = useState<ProfileDetailResponse | null>(
     null
   );
@@ -61,6 +60,7 @@ export function ProfileDetailPage() {
   }
 
   const user: FullUserProfile = profileData.data.user_profile;
+  const platform = searchParams.get("platform") || user.type || "unknown";
 
   return (
     <Layout title={user.fullname}>
@@ -95,15 +95,13 @@ export function ProfileDetailPage() {
             <div className="border p-2 rounded">
               <div className="text-gray-500">Engagement Rate</div>
               <div className="font-semibold">
-                {user.engagement_rate !== undefined
-                  ? (user.engagement_rate * 10000).toFixed(2) + "%"
-                  : "N/A"}
+                {formatEngagementRate(user.engagement_rate)}
               </div>
             </div>
             {user.posts_count !== undefined && (
               <div className="border p-2 rounded">
                 <div className="text-gray-500">Posts</div>
-                <div className="font-semibold">{user.posts_count}</div>
+                <div className="font-semibold">{formatNumber(user.posts_count)}</div>
               </div>
             )}
             {user.avg_likes !== undefined && (
@@ -117,7 +115,7 @@ export function ProfileDetailPage() {
             {user.avg_comments !== undefined && (
               <div className="border p-2 rounded">
                 <div className="text-gray-500">Avg Comments</div>
-                <div className="font-semibold">{user.avg_comments}</div>
+                <div className="font-semibold">{formatNumber(user.avg_comments)}</div>
               </div>
             )}
             {user.avg_views !== undefined && user.avg_views > 0 && (
@@ -132,7 +130,7 @@ export function ProfileDetailPage() {
               <div className="border p-2 rounded">
                 <div className="text-gray-500">Engagements</div>
                 <div className="font-semibold">
-                  {formatEngagementRate(user.engagement_rate)}
+                  {formatNumber(user.engagements)}
                 </div>
               </div>
             )}
