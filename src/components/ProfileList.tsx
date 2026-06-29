@@ -4,28 +4,32 @@ import { ProfileCard } from "./ProfileCard";
 interface ProfileListProps {
   profiles: UserProfileSummary[];
   platform: Platform;
-  searchQuery: string;
   onProfileClick: (username: string) => void;
 }
 
 export function ProfileList({
   profiles,
   platform,
-  searchQuery,
   onProfileClick,
 }: ProfileListProps) {
   return (
-    <div className="flex flex-col items-center">
-      {profiles.length === 0 && <p>No profiles found</p>}
-      {profiles.map((profile) => (
-        <ProfileCard
-          key={profile.user_id}
-          profile={profile}
-          platform={platform}
-          searchQuery={searchQuery}
-          onProfileClick={onProfileClick}
-        />
-      ))}
+    <div className="w-full">
+      {profiles.length === 0 ? (
+        <div className="py-12 text-center text-zinc-400 dark:text-zinc-600">
+          No profiles found matching your search.
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl mx-auto">
+          {profiles.map((profile) => (
+            <ProfileCard
+              key={profile.user_id}
+              profile={profile}
+              platform={platform}
+              onProfileClick={onProfileClick}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

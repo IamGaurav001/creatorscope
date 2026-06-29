@@ -37,3 +37,11 @@ export function getPlatformLabel(platform: Platform): string {
   if (platform === "youtube") return "YouTube";
   return "TikTok";
 }
+
+export function getPlatformFromUrl(url: string): Platform | "unknown" {
+  if (url.includes("youtube.com")) return "youtube";
+  if (url.includes("instagram.com")) return "instagram";
+  if (url.includes("tiktok.com")) return "tiktok";
+  return "unknown";
+}
+
