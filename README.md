@@ -89,8 +89,8 @@ src/
 
 ```bash
 # Clone the repo
-git clone https://github.com/IamGaurav001/wobb-influencer-search.git
-cd wobb-influencer-search
+git clone https://github.com/IamGaurav001/creatorscope.git
+cd creatorscope
 
 # Install dependencies
 npm install
