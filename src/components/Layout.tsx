@@ -2,9 +2,9 @@ import { useState, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useStore } from "@/store/useStore";
 import { SelectedSidebar } from "./SelectedSidebar";
-import { Button } from "./common/Button";
-import { Sun, Moon, Compass, Users, Bookmark, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { Moon, Compass, Bookmark, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface LayoutProps {
   children: ReactNode;
