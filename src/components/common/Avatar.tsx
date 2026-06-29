@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 interface AvatarProps {
   src?: string;
@@ -40,16 +41,20 @@ export function Avatar({ src, name, className = "w-12 h-12" }: AvatarProps) {
   // If there's no source image, or if it failed to load, display the initials fallback
   if (!src || hasError) {
     return (
-      <div
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
         className={`${className} rounded-full flex items-center justify-center font-bold text-sm tracking-wider select-none shadow-inner border border-zinc-200/10 ${gradientClass}`}
       >
         {initials}
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <img
+    <motion.img
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       src={src}
       alt={name}
       onError={() => setHasError(true)}

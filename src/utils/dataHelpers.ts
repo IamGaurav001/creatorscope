@@ -15,7 +15,13 @@ export function getSearchData(platform: Platform): SearchData {
 
 export function extractProfiles(platform: Platform): UserProfileSummary[] {
   const data = getSearchData(platform);
-  return data.accounts.map((item) => item.account.user_profile);
+  return data.accounts.map((item) => {
+    const up = item.account.user_profile as unknown as Record<string, unknown>;
+    return {
+      ...item.account.user_profile,
+      username: (up.username || up.handle || up.custom_name || "creator") as string,
+    };
+  });
 }
 
 export function filterProfiles(

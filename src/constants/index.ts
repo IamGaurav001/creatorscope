@@ -47,6 +47,14 @@ export const INFLUENCER_METADATA: Record<string, InfluencerMeta> = {
 };
 
 export function getInfluencerMeta(username: string): InfluencerMeta {
+  if (!username) {
+    return {
+      category: "Content Creator",
+      country: "Global 🌐",
+      countryCode: "UN",
+      brandColor: "from-indigo-500 to-purple-600",
+    };
+  }
   const normalized = username.toLowerCase();
   for (const [key, value] of Object.entries(INFLUENCER_METADATA)) {
     if (key.toLowerCase() === normalized) {
