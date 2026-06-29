@@ -72,7 +72,7 @@ export function SearchPage() {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center space-y-3"
+          className="max-w-4xl mx-auto text-center space-y-3"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-purple-200/50 dark:border-white/[0.06] bg-purple-500/5 backdrop-blur-md text-xs font-black text-purple-700 dark:text-purple-400 select-none">
@@ -87,7 +87,7 @@ export function SearchPage() {
             </span>
           </h2>
           
-          <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto font-medium">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm sm:text-base max-w-xl mx-auto font-medium">
             Search, analyze, and shortlist top influencers across Instagram, YouTube, and TikTok with real-time analytics.
           </p>
         </motion.div>
@@ -113,7 +113,7 @@ export function SearchPage() {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.5 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto mb-10"
+        className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full mb-10"
       >
         <StatCard
           label="Total Creators"
@@ -146,13 +146,15 @@ export function SearchPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="flex items-center justify-between mb-4 max-w-7xl mx-auto border-b border-border pb-2 text-left"
+        className="flex items-center justify-between mb-4 w-full border-b border-border pb-2 text-left"
       >
-        <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-extrabold uppercase tracking-wider">
-          Explore Grid
+        <span className="text-[11px] sm:text-xs text-zinc-400 dark:text-zinc-500 font-extrabold uppercase tracking-wider">
+          🔍 Creator Discovery
         </span>
-        <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
-          Showing {filtered.length} of {allProfiles.length} profiles
+        <span className="text-[11px] sm:text-xs text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
+          {filtered.length === allProfiles.length
+            ? `${allProfiles.length} Influencers Available`
+            : `${filtered.length} of ${allProfiles.length} Influencers Matched`}
         </span>
       </motion.div>
 

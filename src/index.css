@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #F8FAFC;
+  --bg: #FAFAFA;
   --surface: #FFFFFF;
   --card: #FFFFFF;
   --primary: #7C3AED;
@@ -14,6 +14,12 @@
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --grid-color: rgba(0, 0, 0, 0.045);
+  --hero-glow: rgba(139, 92, 246, 0.06);
+  --bg-pattern: 
+    radial-gradient(circle at 50% 180px, rgba(139, 92, 246, 0.08) 0%, transparent 65%),
+    linear-gradient(rgba(0, 0, 0, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.075) 1px, transparent 1px);
 }
 
 html.dark {
@@ -26,6 +32,12 @@ html.dark {
   --text-muted: #A1A1AA;
   --border: rgba(255, 255, 255, 0.08);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --grid-color: rgba(255, 255, 255, 0.035);
+  --hero-glow: rgba(139, 92, 246, 0.12);
+  --bg-pattern: 
+    radial-gradient(circle at 50% 180px, rgba(139, 92, 246, 0.14) 0%, transparent 65%),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 @theme {
@@ -38,6 +50,13 @@ html.dark {
   --color-muted: var(--text-muted);
   --color-border: var(--border);
   --font-sans: var(--font-sans);
+}
+
+body, .bg-background {
+  background-image: var(--bg-pattern);
+  background-size: 100% 600px, 44px 44px, 44px 44px;
+  background-position: center top, center top, center top;
+  background-repeat: no-repeat, repeat, repeat;
 }
 
 body {

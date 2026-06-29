@@ -54,7 +54,7 @@ export function PlatformFilter({
       </div>
 
       {/* Modern Search bar wrapper with icon and command shortcut */}
-      <div className="relative max-w-xl mx-auto">
+      <div className="relative max-w-[760px] mx-auto">
         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-400 dark:text-zinc-500">
           <svg
             className="h-5 w-5"

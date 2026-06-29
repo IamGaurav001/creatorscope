@@ -77,15 +77,15 @@ export const ProfileCard = memo(function ProfileCard({
 
         <div className="min-w-0">
           <div className="flex items-center justify-center gap-1">
-            <span className="font-extrabold text-base text-zinc-900 dark:text-zinc-50 truncate max-w-[160px]">
+            <span className="font-extrabold text-base sm:text-[17px] text-zinc-900 dark:text-zinc-50 truncate max-w-[160px]">
               {profile.fullname}
             </span>
             <VerifiedBadge verified={profile.is_verified} />
           </div>
-          <div className="text-[11px] text-zinc-400 dark:text-zinc-500 font-medium">
+          <div className="text-xs text-zinc-400 dark:text-zinc-500 font-medium">
             @{profile.username}
           </div>
-          <div className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-1 font-semibold">
+          <div className="text-[11px] sm:text-xs text-zinc-400 dark:text-zinc-500 mt-1 font-semibold">
             {meta.country}
           </div>
         </div>
@@ -97,7 +97,7 @@ export const ProfileCard = memo(function ProfileCard({
           <div className="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
             Followers
           </div>
-          <div className="text-sm font-extrabold text-zinc-900 dark:text-zinc-100 mt-0.5">
+          <div className="text-sm sm:text-base font-extrabold text-zinc-900 dark:text-zinc-100 mt-0.5">
             {formatFollowersLocal(profile.followers)}
           </div>
         </div>
@@ -105,7 +105,7 @@ export const ProfileCard = memo(function ProfileCard({
           <div className="text-[10px] sm:text-xs text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
             Engagement
           </div>
-          <div className="text-sm font-extrabold text-zinc-900 dark:text-zinc-100 mt-0.5">
+          <div className="text-sm sm:text-base font-extrabold text-zinc-900 dark:text-zinc-100 mt-0.5">
             {profile.engagement_rate !== undefined
               ? `${(profile.engagement_rate * 100).toFixed(2)}%`
               : "N/A"}
@@ -122,8 +122,8 @@ export const ProfileCard = memo(function ProfileCard({
             handleClick();
           }}
           variant="outline"
-          size="sm"
-          icon={<Eye className="h-3 w-3" />}
+          size="md"
+          icon={<Eye className="h-3.5 w-3.5" />}
           className="justify-center w-full"
         >
           View
@@ -132,7 +132,7 @@ export const ProfileCard = memo(function ProfileCard({
           type="button"
           onClick={handleAddToggle}
           variant={isSelected ? "primary" : "secondary"}
-          size="sm"
+          size="md"
           icon={isSelected ? <Check className="h-3.5 w-3.5" /> : <Plus className="h-3.5 w-3.5" />}
           className={`justify-center w-full transition-all duration-300 ${
             isSelected
