@@ -14,6 +14,20 @@ This project was built as a complete redesign of the Wobb frontend assignment �
 
 ---
 
+## Assignment Objectives
+
+- ✔ **Fixed all bugs & quality issues** (casing queries, engagement rate math, engagements formatting, deep-link refreshes)
+- ✔ **Replaced Context API with Zustand** (integrated persistent middleware caching for local storage)
+- ✔ **Implemented persistent shortlist** (add, remove, duplicates check, counter badges, drawer views)
+- ✔ **Redesigned complete UI/UX** (floating glass capsule header, animated layouts, custom theme switchers)
+- ✔ **Improved responsiveness** (6-column layout down to mobile bottom sheets)
+- ✔ **Enhanced accessibility** (ARIA attributes, screen-reader focus, and keyboard shortcuts)
+- ✔ **Refactored component architecture** (divided layouts, page views, and clean common UI controls)
+- ✔ **Added dark mode** (instant system preference checks, theme selector button transitions)
+- ✔ **Optimized performance** (caching calculations and list rendering loops with useMemo and memo)
+
+---
+
 ## Features
 
 - 🔍 **Instant Search** — Case-insensitive search by full name or username with live results
