@@ -165,7 +165,6 @@ export function Layout({ children, title }: LayoutProps) {
             © 2026 <span className="text-purple-600 dark:text-purple-400 font-bold">CreatorScope</span>
           </span>
           <span className="hidden sm:block">·</span>
-          <span>Built with React · TypeScript · Zustand · Framer Motion</span>
           <span className="hidden sm:block">·</span>
           <span>Designed & Developed by <span className="font-bold text-zinc-600 dark:text-zinc-300">Gaurav Kumar Dubey</span></span>
         </div>
